@@ -6,6 +6,7 @@ const path = require("path");
 const user_controller = require("../controller/userController");
 const auth = require("../middleware/auth");
 
+
 // Body parsing middleware
 user_route.use(bodyParser.json());
 user_route.use(bodyParser.urlencoded({ extended: true }));
@@ -30,8 +31,9 @@ user_route.post("/register", upload.single("image"), user_controller.register_us
 user_route.post("/login", user_controller.user_login);
 
 // Protected route using the auth middleware
+
 user_route.post("/test", auth, function (req, res) {
-  res.status(200).send({ success: true, msg: "gdgdhgdhgd" });
+  res.status(200).send({ success: true, msg: "authendicate" });
 });
 
 // Route to update user password

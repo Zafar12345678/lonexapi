@@ -1,7 +1,6 @@
 const Store = require("../models/storemodel");
 const User = require("../models/userModel");
 
-const mongoose = require("mongoose")
 
 const create_store = async (req, res) => {
   try {

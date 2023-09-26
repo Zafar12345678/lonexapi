@@ -4,7 +4,7 @@ const bodyparser = require("body-parser");
 const multer = require("multer");
 const path = require("path");
 const store_controller = require("../controller/storecontroller");
-const auth = require("../middleware/auth");
+//const auth = require("../middleware/auth");
 
 
 
@@ -24,7 +24,8 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
+const auth = require('../middleware/auth');
+store_route.post("/create-store", auth,upload.single("logo"), store_controller.create_store);
 
-store_route.post("/create-store", auth, upload.single("logo"), store_controller.create_store);
 
 module.exports = store_route;
